@@ -6,7 +6,7 @@
   <title>五度圈 · DJ 接歌參考</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Orbitron:wght@600;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,6 +14,7 @@
     <div class="orb orb-a"></div>
     <div class="orb orb-b"></div>
     <div class="grain"></div>
+    <div class="scanlines"></div>
   </div>
 
   <header class="hero">
@@ -28,9 +29,9 @@
         <svg id="wheel" viewBox="0 0 640 640" role="img" aria-label="可點選的五度圈">
           <defs>
             <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="rgba(255, 214, 90, 0.35)" />
-              <stop offset="55%" stop-color="rgba(255, 214, 90, 0.08)" />
-              <stop offset="100%" stop-color="rgba(255, 214, 90, 0)" />
+              <stop offset="0%" stop-color="rgba(0, 240, 255, 0.4)" />
+              <stop offset="45%" stop-color="rgba(255, 43, 214, 0.14)" />
+              <stop offset="100%" stop-color="rgba(0, 240, 255, 0)" />
             </radialGradient>
             <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
               <feGaussianBlur stdDeviation="4" result="blur" />
@@ -70,10 +71,10 @@
       <div class="side-block colors">
         <h2>顏色意思</h2>
         <ul class="legend">
-          <li><span class="swatch selected"></span>黃＝你現在的調</li>
-          <li><span class="swatch match"></span>綠＝關係大小調（很好接）</li>
-          <li><span class="swatch adjacent"></span>藍＝上下五度（也好接）</li>
-          <li><span class="swatch energy"></span>橘＝Camelot ±3 與關係大小調</li>
+          <li><span class="swatch selected"></span>電黃＝你現在的調</li>
+          <li><span class="swatch match"></span>酸綠＝關係大小調（很好接）</li>
+          <li><span class="swatch adjacent"></span>霓虹青＝上下五度（也好接）</li>
+          <li><span class="swatch energy"></span>洋紅＝Camelot ±3 與關係大小調</li>
         </ul>
       </div>
 
