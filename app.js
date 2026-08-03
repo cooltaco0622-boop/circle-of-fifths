@@ -105,18 +105,12 @@ function compatibility(fromId) {
       } else if (to.letter === from.letter && to.num === wrapNum(from.num - 1)) {
         kind = "adjacent";
         why = "下五度 · 也好接";
-      } else if (to.letter === from.letter && to.num === wrapNum(from.num + 3)) {
-        kind = "energy";
-        why = "Camelot +3 · 能量上升";
-      } else if (to.letter === from.letter && to.num === wrapNum(from.num - 3)) {
-        kind = "energy";
-        why = "Camelot −3 · 能量下降";
       } else if (to.letter !== from.letter && to.num === wrapNum(from.num + 3)) {
         kind = "energy";
-        why = "+3 的關係大小調";
+        why = from.isMajor ? "+3 關係小調" : "+3 關係大調";
       } else if (to.letter !== from.letter && to.num === wrapNum(from.num - 3)) {
         kind = "energy";
-        why = "−3 的關係大小調";
+        why = from.isMajor ? "−3 關係小調" : "−3 關係大調";
       }
 
       if (kind) {
@@ -168,7 +162,7 @@ function buildWheel() {
     majorText.setAttribute("y", majorPos.y + 14);
     majorText.setAttribute("text-anchor", "middle");
     majorText.setAttribute("dominant-baseline", "middle");
-    majorText.setAttribute("font-size", "12");
+    majorText.setAttribute("font-size", "15");
     majorText.textContent = row.major;
     majorG.appendChild(majorText);
 
@@ -188,7 +182,7 @@ function buildWheel() {
     const minorCode = document.createElementNS("http://www.w3.org/2000/svg", "text");
     minorCode.classList.add("code-label");
     minorCode.setAttribute("x", minorPos.x);
-    minorCode.setAttribute("y", minorPos.y - 7);
+    minorCode.setAttribute("y", minorPos.y - 8);
     minorCode.setAttribute("text-anchor", "middle");
     minorCode.setAttribute("dominant-baseline", "middle");
     minorCode.setAttribute("font-size", "22");
@@ -198,10 +192,10 @@ function buildWheel() {
     const minorText = document.createElementNS("http://www.w3.org/2000/svg", "text");
     minorText.classList.add("name-label");
     minorText.setAttribute("x", minorPos.x);
-    minorText.setAttribute("y", minorPos.y + 13);
+    minorText.setAttribute("y", minorPos.y + 14);
     minorText.setAttribute("text-anchor", "middle");
     minorText.setAttribute("dominant-baseline", "middle");
-    minorText.setAttribute("font-size", "11");
+    minorText.setAttribute("font-size", "14");
     minorText.textContent = row.minor;
     minorG.appendChild(minorText);
 

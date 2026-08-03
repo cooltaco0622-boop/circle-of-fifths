@@ -250,8 +250,7 @@ body {
 }
 
 .key-seg .name-label {
-  font-size: 11px;
-  fill: rgba(234, 247, 255, 0.48);
+  fill: rgba(234, 247, 255, 0.62);
   font-weight: 500;
 }
 
