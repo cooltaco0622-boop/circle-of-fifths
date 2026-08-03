@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>五度圈 · DJ 接歌參考</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+TC:wght@400;500;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header class="hero">
+    <p class="brand">HARMONIC RING</p>
+    <h1>五度圈</h1>
+    <p class="tagline">點定現在的調性，適合接歌的調性會自動亮起。</p>
+  </header>
+
+  <main class="stage">
+    <section class="wheel-panel" aria-label="五度圈">
+      <div class="wheel-wrap">
+        <svg id="wheel" viewBox="0 0 640 640" role="img" aria-label="可點選的五度圈">
+          <defs>
+            <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255, 214, 90, 0.35)" />
+              <stop offset="55%" stop-color="rgba(255, 214, 90, 0.08)" />
+              <stop offset="100%" stop-color="rgba(255, 214, 90, 0)" />
+            </radialGradient>
+            <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <circle class="wheel-ring" cx="320" cy="320" r="292" />
+          <circle class="wheel-ring inner" cx="320" cy="320" r="188" />
+          <circle class="hub-glow" cx="320" cy="320" r="110" fill="url(#hubGlow)" />
+          <g id="segments"></g>
+          <g id="labels"></g>
+          <g class="hub">
+            <circle cx="320" cy="320" r="78" class="hub-disk" />
+            <text x="320" y="308" class="hub-kicker" text-anchor="middle">目前調性</text>
+            <text id="hub-key" x="320" y="342" class="hub-key" text-anchor="middle">—</text>
+            <text id="hub-camelot" x="320" y="368" class="hub-camelot" text-anchor="middle"></text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <aside class="side" aria-live="polite">
+      <div class="side-block">
+        <h2>怎麼用</h2>
+        <p class="hint">外圈是大調、內圈是小調。<strong>點一下你現在播的調</strong>，旁邊適合接的調就會亮起來。</p>
+      </div>
+
+      <div class="side-block">
+        <h2>接歌建議</h2>
+        <p id="hint" class="hint">還沒選調——先點圓盤上任意一個。</p>
+        <ul id="compat-list" class="compat-list"></ul>
+      </div>
+
+      <div class="side-block colors">
+        <h2>顏色意思</h2>
+        <ul class="legend">
+          <li><span class="swatch selected"></span>黃＝你現在的調</li>
+          <li><span class="swatch match"></span>綠＝關係大小調（很好接）</li>
+          <li><span class="swatch adjacent"></span>藍＝上下五度（也好接）</li>
+        </ul>
+      </div>
+
+      <button type="button" id="clear-btn" class="clear-btn">清除選取</button>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <p>依 Camelot Wheel 和聲混音：同碼、±1 鄰近、關係大小調為安全接歌路徑。</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
