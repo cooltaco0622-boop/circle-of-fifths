@@ -105,6 +105,18 @@ function compatibility(fromId) {
       } else if (to.letter === from.letter && to.num === wrapNum(from.num - 1)) {
         kind = "adjacent";
         why = "下五度 · 也好接";
+      } else if (to.letter === from.letter && to.num === wrapNum(from.num + 3)) {
+        kind = "energy";
+        why = "Camelot +3 · 能量上升";
+      } else if (to.letter === from.letter && to.num === wrapNum(from.num - 3)) {
+        kind = "energy";
+        why = "Camelot −3 · 能量下降";
+      } else if (to.letter !== from.letter && to.num === wrapNum(from.num + 3)) {
+        kind = "energy";
+        why = "+3 的關係大小調";
+      } else if (to.letter !== from.letter && to.num === wrapNum(from.num - 3)) {
+        kind = "energy";
+        why = "−3 的關係大小調";
       }
 
       if (kind) {
@@ -113,7 +125,7 @@ function compatibility(fromId) {
     }
   }
 
-  const order = { selected: 0, match: 1, adjacent: 2 };
+  const order = { selected: 0, match: 1, adjacent: 2, energy: 3 };
   results.sort((a, b) => order[a.kind] - order[b.kind] || a.num - b.num);
   return results;
 }
