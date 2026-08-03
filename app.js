@@ -105,6 +105,12 @@ function compatibility(fromId) {
       } else if (to.letter === from.letter && to.num === wrapNum(from.num - 1)) {
         kind = "adjacent";
         why = "下五度 · 也好接";
+      } else if (to.letter !== from.letter && to.num === wrapNum(from.num + 3)) {
+        kind = "energy";
+        why = from.isMajor ? "+3 關係小調" : "+3 關係大調";
+      } else if (to.letter !== from.letter && to.num === wrapNum(from.num - 3)) {
+        kind = "energy";
+        why = from.isMajor ? "−3 關係小調" : "−3 關係大調";
       }
 
       if (kind) {
@@ -113,7 +119,7 @@ function compatibility(fromId) {
     }
   }
 
-  const order = { selected: 0, match: 1, adjacent: 2 };
+  const order = { selected: 0, match: 1, adjacent: 2, energy: 3 };
   results.sort((a, b) => order[a.kind] - order[b.kind] || a.num - b.num);
   return results;
 }
@@ -140,23 +146,25 @@ function buildWheel() {
     majorG.appendChild(majorPath);
 
     const majorPos = polar((MID_R + OUTER_R) / 2, mid);
-    const majorText = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    majorText.setAttribute("x", majorPos.x);
-    majorText.setAttribute("y", majorPos.y - 4);
-    majorText.setAttribute("text-anchor", "middle");
-    majorText.setAttribute("dominant-baseline", "middle");
-    majorText.setAttribute("font-size", "16");
-    majorText.textContent = row.major;
-    majorG.appendChild(majorText);
-
     const majorCode = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    majorCode.classList.add("camelot-label");
+    majorCode.classList.add("code-label");
     majorCode.setAttribute("x", majorPos.x);
-    majorCode.setAttribute("y", majorPos.y + 14);
+    majorCode.setAttribute("y", majorPos.y - 8);
     majorCode.setAttribute("text-anchor", "middle");
     majorCode.setAttribute("dominant-baseline", "middle");
+    majorCode.setAttribute("font-size", "26");
     majorCode.textContent = camelot(row.num, "B");
     majorG.appendChild(majorCode);
+
+    const majorText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    majorText.classList.add("name-label");
+    majorText.setAttribute("x", majorPos.x);
+    majorText.setAttribute("y", majorPos.y + 14);
+    majorText.setAttribute("text-anchor", "middle");
+    majorText.setAttribute("dominant-baseline", "middle");
+    majorText.setAttribute("font-size", "15");
+    majorText.textContent = row.major;
+    majorG.appendChild(majorText);
 
     // Inner = minor
     const minorG = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -171,23 +179,25 @@ function buildWheel() {
     minorG.appendChild(minorPath);
 
     const minorPos = polar((INNER_R + MID_R) / 2, mid);
-    const minorText = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    minorText.setAttribute("x", minorPos.x);
-    minorText.setAttribute("y", minorPos.y - 2);
-    minorText.setAttribute("text-anchor", "middle");
-    minorText.setAttribute("dominant-baseline", "middle");
-    minorText.setAttribute("font-size", "13");
-    minorText.textContent = row.minor;
-    minorG.appendChild(minorText);
-
     const minorCode = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    minorCode.classList.add("camelot-label");
+    minorCode.classList.add("code-label");
     minorCode.setAttribute("x", minorPos.x);
-    minorCode.setAttribute("y", minorPos.y + 13);
+    minorCode.setAttribute("y", minorPos.y - 8);
     minorCode.setAttribute("text-anchor", "middle");
     minorCode.setAttribute("dominant-baseline", "middle");
+    minorCode.setAttribute("font-size", "22");
     minorCode.textContent = camelot(row.num, "A");
     minorG.appendChild(minorCode);
+
+    const minorText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    minorText.classList.add("name-label");
+    minorText.setAttribute("x", minorPos.x);
+    minorText.setAttribute("y", minorPos.y + 14);
+    minorText.setAttribute("text-anchor", "middle");
+    minorText.setAttribute("dominant-baseline", "middle");
+    minorText.setAttribute("font-size", "14");
+    minorText.textContent = row.minor;
+    minorG.appendChild(minorText);
 
     frag.appendChild(majorG);
     frag.appendChild(minorG);
