@@ -297,6 +297,10 @@ body {
   fill: var(--foam);
 }
 
+.wheel-active .key-seg.is-energy .camelot-label {
+  fill: rgba(232, 244, 240, 0.72);
+}
+
 @keyframes pop {
   from { transform: scale(0.96); }
   to { transform: scale(1); }
