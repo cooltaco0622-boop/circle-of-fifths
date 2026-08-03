@@ -243,9 +243,15 @@ body {
   transition: fill 0.25s ease, opacity 0.25s ease;
 }
 
-.key-seg .camelot-label {
-  font-size: 10px;
-  fill: rgba(234, 247, 255, 0.42);
+.key-seg .code-label {
+  font-weight: 700;
+  fill: rgba(234, 247, 255, 0.95);
+  letter-spacing: 0.02em;
+}
+
+.key-seg .name-label {
+  font-size: 11px;
+  fill: rgba(234, 247, 255, 0.48);
   font-weight: 500;
 }
 
@@ -291,7 +297,7 @@ body {
   fill: var(--ink);
 }
 
-.wheel-active .key-seg.is-selected .camelot-label {
+.wheel-active .key-seg.is-selected .name-label {
   fill: rgba(5, 1, 10, 0.7);
 }
 
@@ -305,7 +311,7 @@ body {
   fill: var(--ink);
 }
 
-.wheel-active .key-seg.is-match .camelot-label {
+.wheel-active .key-seg.is-match .name-label {
   fill: rgba(5, 1, 10, 0.65);
 }
 
@@ -319,7 +325,7 @@ body {
   fill: var(--ink);
 }
 
-.wheel-active .key-seg.is-adjacent .camelot-label {
+.wheel-active .key-seg.is-adjacent .name-label {
   fill: rgba(5, 1, 10, 0.65);
 }
 
@@ -333,7 +339,7 @@ body {
   fill: var(--foam);
 }
 
-.wheel-active .key-seg.is-energy .camelot-label {
+.wheel-active .key-seg.is-energy .name-label {
   fill: rgba(234, 247, 255, 0.72);
 }
 
