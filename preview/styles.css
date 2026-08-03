@@ -43,10 +43,10 @@ body {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -8%, rgba(0, 240, 255, 0.18), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 100% 85%, rgba(255, 43, 214, 0.16), transparent 50%),
-    radial-gradient(ellipse 40% 35% at 0% 70%, rgba(184, 255, 60, 0.07), transparent 45%),
-    linear-gradient(165deg, #020006 0%, #0a0414 40%, #05081a 100%);
+    radial-gradient(ellipse 80% 50% at 50% -8%, rgba(0, 240, 255, 0.32), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 100% 85%, rgba(255, 43, 214, 0.3), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 0% 70%, rgba(184, 255, 60, 0.12), transparent 45%),
+    linear-gradient(165deg, #000000 0%, #14081f 38%, #03101c 100%);
 }
 
 .orb {
@@ -62,7 +62,7 @@ body {
   height: min(52vw, 440px);
   top: 8%;
   left: -10%;
-  background: rgba(0, 240, 255, 0.32);
+  background: rgba(0, 240, 255, 0.5);
 }
 
 .orb-b {
@@ -70,7 +70,7 @@ body {
   height: min(44vw, 380px);
   right: -8%;
   bottom: 6%;
-  background: rgba(255, 43, 214, 0.28);
+  background: rgba(255, 43, 214, 0.45);
   animation-delay: -5s;
 }
 
@@ -250,11 +250,13 @@ body {
 }
 
 .key-seg.major path {
-  fill: rgba(0, 240, 255, 0.14);
+  fill: rgba(0, 240, 255, 0.28);
+  stroke: rgba(0, 240, 255, 0.35);
 }
 
 .key-seg.minor path {
-  fill: rgba(255, 43, 214, 0.12);
+  fill: rgba(255, 43, 214, 0.26);
+  stroke: rgba(255, 43, 214, 0.35);
 }
 
 .key-seg:hover path,
